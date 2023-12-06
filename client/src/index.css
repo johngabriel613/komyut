@@ -1,0 +1,85 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base{
+  html{
+    font-family: 'Inter', sans-serif;
+  }
+
+  body{
+    @apply bg-dark text-white;
+  }
+
+  
+}
+
+@layer components{
+  .container-5xl{
+    @apply container max-w-5xl;
+  }
+
+  .container-6xl{
+    @apply container max-w-6xl;
+  }
+  
+  /* custom flex for centering vertically */
+  .flex-center{
+    @apply flex items-center;
+  }
+
+  /* buttons */
+  .btn-sm{
+    @apply text-sm px-2 py-1 rounded-sm;
+  }
+  .btn-lg{
+    @apply px-4 py-2 rounded-md;
+  }
+}
+
+@layer utilities{
+  .dotted-line{
+    position: relative;
+    justify-content: center;
+  }
+  
+  .dotted-line::before{
+    content: '';
+    position: absolute;
+    height: 40px;
+    top: 15px;
+    border-left: 5px dotted #3b82f6;
+    border-radius: 100px;
+    z-index: -10;
+  }
+
+  /* style for active navigation link */
+  .navlink.active{
+    position: relative;
+    display: flex;
+    color: #fff;
+  }
+
+  .navlink.active::after{
+    content: '';
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    left: -10px;
+    bottom: 7px;
+    border-radius: 50%;
+    @apply bg-primary;
+  }
+
+  @media screen and (min-width:768px) {
+    .navlink.active{
+      justify-content: center;
+    }
+
+    .navlink.active::after{
+      left: auto;
+      bottom: -10px;
+    }
+  
+  }
+}
